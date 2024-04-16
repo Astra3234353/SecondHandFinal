@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Second Hand</title>
+
+    <!-- This code is needed for responsive design to work.
+      (Responsive design = make the website look good on
+      smaller screen sizes like a phone or a tablet). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Load a font called Roboto from Google Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    .instagram-logo-container {
+  margin-left: 10px; /* Ajusta este valor según tus necesidades */
+  
+}
+
+.instagram-logo {
+  width: 35px; /* Ajusta este valor según tus necesidades */
+  height: 35px; /* Ajusta este valor según tus necesidades */
+  padding-right: 40px;
+  padding-top: 8px;
+}
+
+
+.amazon-header {
+  background-color: rgb(233, 124, 77);
+  color: rgb(181, 181, 181);
+  padding-left: 0px;
+  padding-right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+}
+
+.amazon-header-left-section {
+  width: 180px;
+}
+
+@media (max-width: 700px) {
+  .amazon-header-left-section {
+    width: unset;
+  }
+}
+
+.header-link {
+  display: inline-block;
+  padding: 0px;
+  border-radius: 1px;
+  cursor: pointer;
+  text-decoration: none;
+  border: 4px solid rgba(150, 63, 63, 0);
+}
+
+.header-link:hover {
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.amazon-logo {
+  width: 210px;
+  margin-top: 0px;
+  padding-left: 0px;
+}
+
+.amazon-mobile-logo {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .amazon-logo {
+    display: none;
+  }
+
+  .amazon-mobile-logo {
+    display: block;
+    height: 35px;
+    margin-top: 5px;
+  }
+}
+
+.amazon-header-middle-section {
+  flex: 1;
+  max-width: 300px;
+  margin-left: 0px;
+  margin-right: 150px;
+  display: flex;
+}
+
+.search-bar {
+  flex: 1;
+  width: 10px;
+  font-size: 15px;
+  height: 38px;
+  padding-left: 12px;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.search-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 45px;
+  height: 40px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  flex-shrink: 0;
+}
+
+.search-icon {
+  height: 22px;
+  margin-left: 2px;
+  margin-top: 3px;
+}
+
+.amazon-header-right-section {
+  width: 90px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: end;
+  padding-left: 1px;
+}
+
+.prime-link {
+  color: rgb(255, 207, 49);
+  border: none;
+  margin-right: 30px;
+  text-decoration: none;
+  animation: glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    color: rgb(139, 15, 211);
+    text-shadow: 0 0 10px rgb(141, 8, 185);
+  }
+  50% {
+    color: rgb(192, 2, 166);
+    text-shadow: 0 0 10px rgb(205, 0, 205);
+  }
+  100% {
+    color: rgb(250, 158, 0);
+    text-shadow: 0 0 10px rgb(208, 114, 0);
+  }
+  }
+
+
+
+.orders-link {
+  color: rgb(241, 241, 241);
+  border: none;
+  margin-right: 40px;
+  padding-top: 7px;
+}
+
+.returns-text {
+  display: block;
+  font-size: 13px;
+}
+
+.orders-text {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  padding-top: 2px;
+  border: none;
+}
+
+.cart-link {
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: none;
+}
+
+.cart-icon {
+  width: 55px;
+  border: none;
+}
+
+.cart-text {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+}
+
+.cart-quantity {
+  color: rgb(237, 254, 0);
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+
+  position: absolute;
+  top: 4px;
+  left: 20px;
+  
+  width: 26px;
+  text-align: center;
+}
+
+
+
+body {
+  font-family: Roboto, Arial;
+  color: rgb(33, 33, 33);
+  /* The <body> element has a default margin of 8px
+     on all sides. This removes the default margins. */
+  margin: 0;
+}
+
+/* <p> elements have a default margin on the top
+   and bottom. This removes the default margins. */
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+select {
+  cursor: pointer;
+}
+
+input, select, button {
+  font-family: Roboto, Arial;
+}
+
+.button-primary {
+  color: rgb(33, 33, 33);
+  background-color: rgb(255, 216, 20);
+  border: 1px solid rgb(252, 210, 0);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+
+.button-primary:hover {
+  background-color: rgb(247, 202, 0);
+  border: 1px solid rgb(242, 194, 0);
+}
+
+.button-primary:active {
+  background: rgb(255, 216, 20);
+  border-color: rgb(252, 210, 0);
+  box-shadow: none;
+}
+
+.button-secondary {
+  color: rgb(33, 33, 33);
+  background: white;
+  border: 1px solid rgb(213, 217, 217);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+
+.button-secondary:hover {
+  background-color: rgb(247, 250, 250);
+}
+
+.button-secondary:active {
+  background-color: rgb(237, 253, 255);
+  box-shadow: none;
+}
+
+/* These styles will limit text to 2 lines. Anything
+   beyond 2 lines will be replaced with "..."
+   You can find this code by using an A.I. tool or by
+   searching in Google.
+   https://css-tricks.com/almanac/properties/l/line-clamp/ */
+.limit-text-to-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.link-primary {
+  color: rgb(182, 1, 1);
+  cursor: pointer;
+}
+
+.link-primary:hover {
+  color: rgb(196, 80, 0);
+}
+
+/* Styles for dropdown selectors. */
+select {
+  color: rgb(33, 33, 33);
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(213, 217, 217);
+  border-radius: 8px;
+  padding: 3px 5px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+
+
+
+select:focus,
+input:focus {
+  outline: 2px solid rgb(255, 153, 0);
+}
+
+.main {
+  margin-top: 70px;
+}
+
+.go-to-primePay {
+  text-decoration: none;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    color: rgb(139, 15, 211);
+    text-shadow: 0 0 10px rgb(141, 8, 185);
+  }
+  50% {
+    color: rgb(192, 2, 166);
+    text-shadow: 0 0 10px rgb(205, 0, 205);
+  }
+  100% {
+    color: rgb(250, 158, 0);
+    text-shadow: 0 0 10px rgb(208, 114, 0);
+  }
+}
+
+@keyframes goldenGlow {
+    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+    50% { text-shadow: 2px 2px 20px gold, 0 0 15px rgb(0, 0, 0), 0 0 10px gold; }
+    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+}
+
+
+
+.products-grid {
+  display: grid;
+
+  /* - In CSS Grid, 1fr means a column will take up the
+       remaining space in the grid.
+     - If we write 1fr 1fr ... 1fr; 8 times, this will
+       divide the grid into 8 columns, each taking up an
+       equal amount of the space.
+     - repeat(8, 1fr); is a shortcut for repeating "1fr"
+       8 times (instead of typing out "1fr" 8 times).
+       repeat(...) is a special property that works with
+       display: grid; */
+  grid-template-columns: repeat(8, 1fr);
+}
+
+/* @media is used to create responsive design (making the
+   website look good on any screen size). This @media
+   means when the screen width is 2000px or less, we
+   will divide the grid into 7 columns instead of 8. */
+@media (max-width: 2000px) {
+  .products-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+/* This @media means when the screen width is 1600px or
+   less, we will divide the grid into 6 columns. */
+@media (max-width: 1600px) {
+  .products-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1300px) {
+  .products-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-container {
+  padding-top: 40px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  border-right: 1px solid rgb(231, 231, 231);
+  border-bottom: 1px solid rgb(231, 231, 231);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+.product-image {
+  /* Images will overflow their container by default. To
+    prevent this, we set max-width and max-height to 100%
+    so they stay inside their container. */
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.product-name {
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.product-rating-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-rating-stars {
+  width: 100px;
+  margin-right: 6px;
+}
+
+.product-rating-count {
+  color: rgb(182, 1, 1);
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+.product-price {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.product-quantity-container {
+  margin-bottom: 17px;
+}
+
+.product-spacer {
+  flex: 1;
+}
+
+.added-to-cart {
+  color: rgb(6, 125, 98);
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  /* At first, the "Added to cart" message will
+     be invisible. Use JavaScript to change the
+     opacity and make it visible. */
+  opacity: 0;
+}
+
+.added-to-cart img {
+  height: 20px;
+  margin-right: 5px;
+}
+
+.add-to-cart-button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 50px;
+}
+
+.prime-title {
+    font-weight: 700;
+    font-size: 40px;
+    font-size: 40px;
+  text-align: center;
+  animation: glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    color: rgb(goldenGlow, green, blue);
+    text-shadow: 0 0 10px yellow;
+  }
+  50% {
+    color: purple;
+    text-shadow: 0 0 10px purple;
+  }
+  100% {
+    color: yellow;
+    text-shadow: 0 0 10px yellow;
+  }
+}
+
+.info {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.info h1, .info h2 {
+  color: #343a40;
+  margin-top: 20px;
+}
+
+.info p {
+  color: #000000;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #ebebeb;
+  
+}
+
+.primePay-button {
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  animation: glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    color: rgb(139, 15, 211);
+    text-shadow: 0 0 10px rgb(141, 8, 185);
+  }
+  50% {
+    color: rgb(192, 2, 166);
+    text-shadow: 0 0 10px rgb(205, 0, 205);
+  }
+  100% {
+    color: rgb(250, 158, 0);
+    text-shadow: 0 0 10px rgb(208, 114, 0);
+  }
+
+}
+
+.boton-prime:hover {
+  background-color: #e68a00;
+}
+
+
+  </style>
+  </head>
+  <body>
+    <div class="amazon-header">
+      <div class="amazon-header-left-section">
+        <a id="instagram-logo" href="https://www.instagram.com/second_hand_tec" target="_blank">
+          <div class="insta-logo"></div>
+        </a>
+        <a href="SecondHand.html" class="header-link">
+          <img class="amazon-logo"
+            src="images/amazon-logo-white.png">
+          <img class="amazon-mobile-logo"
+            src="images/amazon-mobile-logo-white.png">
+            
+        
+        </a>
+      </div>
+
+      <div class="amazon-header-middle-section">
+
+        <a class="prime-link" href="prime.html">
+          <span class="returns-text">Vuelvete</span>
+          <span class="orders-text">Prime</span>
+        </a>
+
+      
+        <input class="search-bar" type="text" placeholder="Buscar" >
+
+        <button class="search-button">
+          <img class="search-icon" src="images/icons/search-icon.png">
+        </button>
+      </div>
+     
+      <div class="amazon-header-right-section">
+        <div class="instagram-logo-container">
+          <a href="https://www.instagram.com/second_hand_tec" target="_blank">
+            <img class="instagram-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="Instagram Logo">
+          </a>
+        </div>
+        
+        <a class="orders-link header-link" href="orders.html">
+          <span class="returns-text">Cancelacion</span>
+          <span class="orders-text">& Ordenes</span>
+        </a>
+
+        <a class="cart-link header-link" href="checkout.html">
+          <img class="cart-icon" src="images/icons/cart-icon.png">
+          <div class="cart-quantity">3</div>
+          <div class="cart-text">Carrito</div>
+        </a>
+      </div>
+    </div>
+  
+    <div class="main">
+      <div class="products-grid">
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/athletic-cotton-socks-6-pairs.jpg">
+          </div>
+
+          <div class="product-name limit-text-to-2-lines">
+            Calcetines atleticos, negros y grises - 6 Pares
+          </div>
+
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              87
+            </div>
+          </div>
+
+          <div class="product-price">
+            $233.00
+          </div>
+
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+          
+            </select>
+          </div>
+
+          <div class="product-spacer"></div>
+
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Añadido
+          </div>
+
+          <button class="add-to-cart-button button-primary">
+            Añadir
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/intermediate-composite-basketball.jpg">
+          </div>
+
+          <div class="product-name limit-text-to-2-lines">
+            Balon mediano de Basketball - Usado (8 meses)
+          </div>
+
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-40.png">
+            <div class="product-rating-count link-primary">
+              127
+            </div>
+          </div>
+
+          <div class="product-price">
+            $551.50
+          </div>
+
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              
+            </select>
+          </div>
+
+          <div class="product-spacer"></div>
+
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Añadido
+          </div>
+
+          <button class="add-to-cart-button button-primary">
+            Añadir
+          </button>
+        </div>
+
+        <div class="product-container">
+          <div class="product-image-container">
+            <img class="product-image"
+              src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
+          </div>
+
+          <div class="product-name limit-text-to-2-lines">
+            Playera de adulto - Usada (3 meses)
+          </div>
+
+          <div class="product-rating-container">
+            <img class="product-rating-stars"
+              src="images/ratings/rating-45.png">
+            <div class="product-rating-count link-primary">
+              56
+            </div>
+          </div>
+
+          <div class="product-price">
+            $220.00
+          </div>
+
+          <div class="product-quantity-container">
+            <select>
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+
+            </select>
+          </div>
+
+          <div class="product-spacer"></div>
+
+          <div class="added-to-cart">
+            <img src="images/icons/checkmark.png">
+            Añadido
+          </div>
+
+          <button class="add-to-cart-button button-primary">
+            Añadir
+          </button>
+
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

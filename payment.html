@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <!-- This code is needed for responsive design to work.
+      (Responsive design = make the website look good on
+      smaller screen sizes like a phone or a tablet). -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Load a font called Roboto from Google Fonts. -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+      <!-- Here are the CSS files for this page. -->
+      <link rel="stylesheet" href="styles/shared/general.css">
+      <link rel="stylesheet" href="styles/pages/checkout/checkout-header.css">
+      <link rel="stylesheet" href="styles/pages/checkout/checkout.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 300px;
+  padding: 16px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+input[type=text], input[type=number] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+</style>
+</head>
+<body>
+
+  <div class="checkout-header">
+    <div class="header-content">
+      <div class="checkout-header-left-section">
+        <a href="SecondHand.html">
+          <img class="amazon-logo" src="images/amazon-logo-white.png">
+          <img class="amazon-mobile-logo" src="images/amazon-logo-white.png">
+        </a>
+      </div>
+
+      <div class="checkout-header-middle-section">
+        Pago de Productos (<a class="return-to-home-link"
+          href="SecondHand.html">3 productos</a>)
+      </div>
+
+      <div class="checkout-header-right-section">
+        <img src="images/icons/checkout-lock-icon.png">
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <label for="cardnumber"><b>Número de tarjeta</b></label>
+  <input type="text" placeholder="Ingrese el número de tarjeta" name="cardnumber" required>
+
+  <label for="expmonth"><b>Fecha de vencimiento</b></label>
+  <input type="text" placeholder="MM/YY" name="expmonth" required>
+
+  <label for="cvv"><b>CVV</b></label>
+  <input type="number" placeholder="Ingrese CVV" name="cvv" required>
+
+  <label for="amount"><b>Monto</b></label>
+  <input type="number" placeholder="Ingrese el monto" name="amount" value="55.38" readonly>
+
+  <button type="submit" onclick=" alert('Pagado!')">Pagar</button>
+</div>
+
+</body>
+</html>
